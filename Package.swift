@@ -7,27 +7,25 @@ let package = Package(
     name: "SwiftGraphQl",
     products: [
         .executable(
-          name: "graphql-cli",
-          targets: ["GraphQlCLI"]),
+            name: "graphql-cli",
+            targets: ["GraphQlCLI"]),
         .library(
             name: "SwiftGraphQl",
             targets: ["SwiftGraphQl"]),
     ],
     dependencies: [
-      .package(url: "https://github.com/mgadda/swift-parse", Package.Dependency.Requirement.upToNextMinor(from: "0.4.0"))
-      // Uncomment for local development
+        .package(url: "https://github.com/ga-reth/swift-parse", Package.Dependency.Requirement.upToNextMinor(from: "1.0.0")),
+        // Uncomment for local development
 //      .package(path: "../swift-parse")
     ],
     targets: [
         .target(
             name: "GraphQlCLI",
-            dependencies: ["SwiftGraphQl"]
-        ),
+            dependencies: ["SwiftGraphQl"]),
         .target(
             name: "SwiftGraphQl",
             dependencies: ["SwiftParse"]),
         .testTarget(
             name: "SwiftGraphQlTests",
             dependencies: ["SwiftGraphQl"]),
-    ]
-)
+    ])
